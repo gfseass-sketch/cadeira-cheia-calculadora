@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cadeira Cheia | Calculadora de Cadeira Vazia para Clínicas Odontológicas</title>
+<meta name="description" content="Calcule quanto sua clínica odontológica está perdendo por mês em faltas e leads esfriados. Kit de confirmação automática por WhatsApp.">
+<meta name="theme-color" content="#0B1220">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+</head>
+<body>
+
+<a class="skip" href="#calculadora">Pular para a calculadora</a>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════ -->
+<header class="hero" id="topo">
+  <nav class="nav">
+    <div class="brand">
+      <span class="brand-mark">🦷</span>
+      <span class="brand-text">Cadeira Cheia<small>clínicas odontológicas</small></span>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#como-funciona">Como funciona</a>
+      <a class="btn btn-primary" href="#calculadora">Calcular meu prejuízo</a>
+    </div>
+  </nav>
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Confirmação automática de agendamento por WhatsApp</p>
+      <h1>A cadeira que não fica vazia mais.</h1>
+      <p class="lede">
+        20% a 35% dos agendamentos de uma clínica odontológica são faltas. Você paga cadeira,
+        instrumental e equipe — e o horário passa. Um WhatsApp que confirma sozinho recupera
+        boa parte disso, sem mensalidade por mensagem.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#calculadora">Calcular quanto estou perdendo</a>
+        <a class="btn btn-outline btn-lg" id="hero-wa" href="#formulario">Falar com um especialista</a>
+      </div>
+      <ul class="hero-badges">
+        <li>Instalação em 30 minutos</li>
+        <li>Kit a partir de R$ 147</li>
+        <li>Sem mensalidade por mensagem</li>
+      </ul>
+    </div>
+
+    <aside class="hero-card" aria-label="Resumo do problema">
+      <div class="stat">
+        <span class="stat-num">R$ 6.000</span>
+        <span class="stat-label">é o que uma clínica de 80 atendimentos a R$ 300 perde por mês em faltas</span>
+      </div>
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num sm">20–35%</span>
+          <span class="stat-label">taxa de falta em clínicas sem confirmação automatizada</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num sm">21×</span>
+          <span class="stat-label">mais chance de qualificar quando o lead é respondido em até 5 min</span>
+        </div>
+      </div>
+      <p class="stat-foot">
+        Referência: rede de 2 clínicas odontológicas, 900 agendamentos/mês, ticket R$ 220–580 —
+        no-show caiu de <strong>28% para 17%</strong> em 5 semanas com a régua de confirmação.
+      </p>
+    </aside>
+  </div>
+</header>
+
+<!-- ══ PROBLEMA ═══════════════════════════════════════════════════ -->
+<section class="section" id="problema">
+  <div class="container">
+    <h2 class="section-title">A agenda que você já pagou</h2>
+    <p class="section-sub">Três sangramentos simultâneos. Qualquer um deles já custa o mês.</p>
+
+    <div class="grid-3">
+      <article class="card">
+        <h3>A cadeira vazia</h3>
+        <p>Você paga cadeira, instrumental, material e equipe. O paciente marca, não vem, e a hora passa.</p>
+        <p class="card-num">25% a 40% de faltas em clínicas que confirmam por telefone</p>
+      </article>
+      <article class="card">
+        <h3>O lead que esfriou</h3>
+        <p>Mensagem às 21h, resposta às 9h do dia seguinte. O paciente já achou outro lugar — e Sometimes achou mais barato.</p>
+        <p class="card-num">79% das clínicas usam WhatsApp; só 34% deixam agendar sozinho</p>
+      </article>
+      <article class="card">
+        <h3>A ligação que ninguém atende</h3>
+        <p>3 atendentes gastando ~50 h/mês ligando para confirmar. Menos de 45% atendem na primeira tentativa. E ainda assim falta.</p>
+        <p class="card-num">Taxa de resposta: 40% por ligação · 73% por sequência no WhatsApp</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CALCULADORA ════════════════════════════════════════════════ -->
+<section class="section section-calc" id="calculadora">
+  <div class="container container-narrow">
+    <div class="calc-head">
+      <h2 class="section-title">Quanto sua clínica está perdendo por mês?</h2>
+      <p class="section-sub">5 perguntas. Leva 40 segundos. Sem cadastro.</p>
+    </div>
+
+    <div class="calc" id="calc-app">
+
+      <!-- ── FORMULÁRIO ── -->
+      <div class="calc-progress" id="progress-wrap" aria-hidden="true">
+        <div class="bar"><span id="progress-bar"></span></div>
+        <span id="progress-label">1 de 5</span>
+      </div>
+
+      <form id="calc-form" novalidate>
+        <div class="step" data-step="1">
+          <p class="step-q">Quantos atendimentos sua clínica faz por mês?</p>
+          <p class="step-h">Conte consultas, limpezas, restaurações — tudo que ocupa cadeira.</p>
+          <div class="chips" data-chips="atendimentos" role="radiogroup" aria-label="Atendimentos por mês"></div>
+          <input class="num-input" type="text" inputmode="numeric" id="atendimentos" name="atendimentos" autocomplete="off" placeholder="Ex.: 80">
+          <p class="err" data-err="atendimentos"></p>
+        </div>
+
+        <div class="step" data-step="2" hidden>
+          <p class="step-q">Qual o valor médio de um atendimento?</p>
+          <p class="step-h">Uma estimativa serve. Use a ticket médio dos seus últimos 3 meses.</p>
+          <div class="chips" data-chips="ticket" role="radiogroup" aria-label="Ticket médio"></div>
+          <div class="field-money">
+            <span class="prefix">R$</span>
+            <input class="num-input" type="text" inputmode="decimal" id="ticket" name="ticket" autocomplete="off" placeholder="Ex.: 300">
+          </div>
+          <p class="err" data-err="ticket"></p>
+        </div>
+
+        <div class="step" data-step="3" hidden>
+          <p class="step-q">Qual % dos seus pacientes falta hoje?</p>
+          <p class="step-h">Se não souber, use 25% — é a média de clínicas que confirmam por telefone.</p>
+          <div class="chips" data-chips="falta" role="radiogroup" aria-label="Taxa de falta"></div>
+          <p class="err" data-err="falta"></p>
+        </div>
+
+        <div class="step" data-step="4" hidden>
+          <p class="step-q">Quantos novos contatos chegam por mês no WhatsApp ou Instagram?</p>
+          <p class="step-h">Mensagens de gente perguntando preço ou querendo marcar.</p>
+          <div class="chips" data-chips="leads" role="radiogroup" aria-label="Leads por mês"></div>
+          <input class="num-input" type="text" inputmode="numeric" id="leads" name="leads" autocomplete="off" placeholder="Ex.: 150">
+          <p class="err" data-err="leads"></p>
+        </div>
+
+        <div class="step" data-step="5" hidden>
+          <p class="step-q">Em que % dos casos você responde em menos de 5 minutos?</p>
+          <p class="step-h">Responda em até 5 minutos = 21× mais chance de qualificar o lead.</p>
+          <div class="chips" data-chips="resposta" role="radiogroup" aria-label="Respondidos em até 5 minutos"></div>
+          <p class="err" data-err="resposta"></p>
+        </div>
+
+        <div class="calc-nav">
+          <button type="button" class="btn btn-ghost" id="btn-back" hidden>Voltar</button>
+          <button type="button" class="btn btn-primary" id="btn-next">Continuar</button>
+        </div>
+      </form>
+
+      <!-- ── RESULTADO ── -->
+      <div class="result" id="result" hidden aria-live="polite">
+        <div class="result-head">
+          <p class="eyebrow">Seu resultado</p>
+          <h3 id="r-loss-label">Sua clínica perde</h3>
+          <div class="loss" id="r-loss">R$ 0</div>
+          <p class="loss-sub">por mês em horário pago e vazio + lead que esfriou</p>
+        </div>
+
+        <div class="result-grid">
+          <div class="rcard rcard-good">
+            <span class="rcard-tag">Recuperável com a régua</span>
+            <span class="rcard-num" id="r-noshow">R$ 0</span>
+            <span class="rcard-desc" id="r-noshow-desc"></span>
+          </div>
+          <div class="rcard rcard-good">
+            <span class="rcard-tag">Lead que deixa de esfriar</span>
+            <span class="rcard-num" id="r-lead">R$ 0</span>
+            <span class="rcard-desc" id="r-lead-desc"></span>
+          </div>
+        </div>
+
+        <div class="result-total">
+          <div>
+            <span class="rt-label">Total recuperável por mês</span>
+            <span class="rt-num" id="r-total">R$ 0</span>
+          </div>
+          <div class="payback">
+            <span class="rt-label">Payback do kit (R$ 147)</span>
+            <span class="rt-num accent" id="r-payback">—</span>
+          </div>
+        </div>
+
+        <ul class="result-facts">
+          <li><span id="r-faltas">—</span></li>
+          <li><span id="r-12m">—</span></li>
+          <li><span id="r-custo">—</span></li>
+          <li><span id="r-horas">—</span></li>
+        </ul>
+
+        <p class="disclaimer">
+          Estimativa baseada em faixas de mercado (no-show de 20–35% sem confirmação automatizada;
+          queda de 30–50% com régua de 4 toques; lead→agendamento de 12% via WhatsApp, 21% entre os
+          que respondem). Não é garantia de resultado.
+        </p>
+
+        <div class="result-actions">
+          <a class="btn btn-primary btn-lg" id="r-wa" href="#formulario" target="_blank" rel="noopener">Falar com especialista</a>
+          <button type="button" class="btn btn-outline" id="btn-copy">Copiar resumo</button>
+          <button type="button" class="btn btn-ghost" id="btn-download">Baixar .txt</button>
+          <button type="button" class="btn btn-ghost" id="btn-restart">Recalcular</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMO FUNCIONA ══════════════════════════════════════════════ -->
+<section class="section" id="como-funciona">
+  <div class="container">
+    <h2 class="section-title">Como funciona</h2>
+    <p class="section-sub">Quatro peças. A última é a que ninguém faz hoje.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <div>
+          <h3>O paciente chama</h3>
+          <p>Mensagem no Instagram ou WhatsApp a qualquer hora. O assistente identifica o procedimento, faz duas perguntas e oferece três horários reais da agenda.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>
+          <h3>Agendamento confirmado</h3>
+          <p>Data, hora, profissional, endereço, mapa e orientação de preparo. O paciente sabe exatamente o que esperar.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>
+          <h3>Quatro toques antes da consulta</h3>
+          <p>72h, 24h, 2h e na hora. Cada um com botão de confirmar ou remarcar. É aqui que a falta morre.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <div>
+          <h3>Quem faltou volta. Quem foi atendido retorna.</h3>
+          <p>Recuperação automática da falta com novo horário, cuidado pós-operatório e recall de limpeza em 6 meses.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="beforeafter">
+      <div class="ba-col">
+        <h4>Antes</h4>
+        <ul>
+          <li>No-show <strong>28%</strong></li>
+          <li>Resposta <strong>40%</strong></li>
+          <li>Remarcações <strong>15/mês</strong></li>
+          <li>Equipe em confirmação <strong>~50 h/mês</strong></li>
+        </ul>
+      </div>
+      <div class="ba-arrow" aria-hidden="true">→</div>
+      <div class="ba-col ba-col-after">
+        <h4>Depois</h4>
+        <ul>
+          <li>No-show <strong>17%</strong></li>
+          <li>Resposta <strong>73%</strong></li>
+          <li>Remarcações <strong>38/mês</strong></li>
+          <li>Equipe em confirmação <strong>~8 h/mês</strong></li>
+        </ul>
+      </div>
+      <p class="ba-foot">Rede de 2 clínicas odontológicas, 900 agendamentos/mês, ticket R$ 220–580 — 5 semanas de operação.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KIT ═════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="kit">
+  <div class="container">
+    <div class="kit-grid">
+      <div>
+        <h2 class="section-title">O que vem no kit</h2>
+        <p class="section-sub">Não é um arquivo. É a operação rodando, com a sua marca e a sua agenda.</p>
+        <ul class="checklist">
+          <li>Fluxos configurados (prontos para Manychat ou WhatsApp Business API)</li>
+          <li>60+ mensagens de triagem, confirmação, recuperação e pós-atendimento</li>
+          <li>Preparo e pós-cuidado por procedimento, validados pelo seu CRO</li>
+          <li>Triagem de urgência com protocolo de emergência e escalonamento em até 2 minutos</li>
+          <li>Recuperação automática de falta com oferta de novo horário</li>
+          <li>Recall de limpeza em 6 meses (receita recorrente)</li>
+          <li>Painel com os 5 indicadores da agenda — 10 minutos por semana</li>
+          <li>Planilha de ROI: quanto a clínica perde e quanto o kit devolve</li>
+          <li>Checklist de implantação (BSP, Meta, Instagram, agenda) passo a passo</li>
+          <li>11 modelos de mensagem prontos para aprovação na Meta</li>
+          <li>Textos de política de cancelamento e pré-pagamento (revisar com o advogado)</li>
+          <li>3 aulas curtas, grupo de suporte e 6 meses de atualizações</li>
+        </ul>
+      </div>
+
+      <div class="pricing">
+        <div class="price-card">
+          <span class="price-name">Essencial</span>
+          <span class="price-value">R$ 147</span>
+          <span class="price-desc">1 clínica · 1 unidade · até 5 procedimentos</span>
+          <ul>
+            <li>Fluxos + copy + painel</li>
+            <li>Checklist e templates da Meta</li>
+            <li>3 aulas + suporte</li>
+          </ul>
+        </div>
+        <div class="price-card price-card-hot">
+          <span class="price-badge">Mais vendido</span>
+          <span class="price-name">Pro</span>
+          <span class="price-value">R$ 347</span>
+          <span class="price-desc">Tudo do Essencial, mais:</span>
+          <ul>
+            <li>Integração com a agenda</li>
+            <li>Painel com meta por turno</li>
+            <li>Pré-pagamento / sinal</li>
+            <li>Reativação de orçamento</li>
+            <li>1 revisão de copy + 30 min comigo</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <span class="price-name">Instalação assistida</span>
+          <span class="price-value">R$ 597</span>
+          <span class="price-desc">Eu configuro no seu número e na sua agenda</span>
+          <ul>
+            <li>Config + teste real</li>
+            <li>Treinamento da equipe</li>
+            <li>30 dias de ajuste</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORMULÁRIO ══════════════════════════════════════════════════ -->
+<section class="section" id="formulario">
+  <div class="container container-narrow">
+    <div class="form-card">
+      <h2 class="section-title">Receber o plano de implementação</h2>
+      <p class="section-sub">Com os seus números, a gente monta a régua e mostra o antes/depois da sua clínica antes de qualquer contrato.</p>
+
+      <form id="lead-form" novalidate>
+        <div class="field">
+          <label for="lf-nome">Seu nome</label>
+          <input id="lf-nome" name="nome" type="text" autocomplete="name" placeholder="Dra. Ana Ribeiro">
+        </div>
+        <div class="field">
+          <label for="lf-clinica">Clínica</label>
+          <input id="lf-clinica" name="clinica" type="text" autocomplete="organization" placeholder="Clínica Sorriso">
+        </div>
+        <div class="field">
+          <label for="lf-wa">WhatsApp</label>
+          <input id="lf-wa" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-0000">
+        </div>
+        <div class="field">
+          <label for="lf-email">E-mail</label>
+          <input id="lf-email" name="email" type="email" autocomplete="email" placeholder="voce@clinica.com.br">
+        </div>
+        <div class="field">
+          <label for="lf-cidade">Cidade / estado</label>
+          <input id="lf-cidade" name="cidade" type="text" placeholder="São Paulo / SP">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="lead-submit">Receber meu plano</button>
+        <p class="form-note" id="lead-note">
+          Seus dados ficam salvos apenas neste dispositivo, a menos que você opte por enviar pelo WhatsApp.
+        </p>
+      </form>
+
+      <div class="form-done" id="lead-done" hidden>
+        <p class="done-mark">✓</p>
+        <h3>Resumo gerado, {nome}.</h3>
+        <p>O plano com os seus números está pronto. Toque no botão para enviar pelo WhatsApp ou copie o resumo abaixo.</p>
+        <div class="done-actions">
+          <a class="btn btn-primary" id="lead-wa" href="#">Enviar pelo WhatsApp</a>
+          <button type="button" class="btn btn-outline" id="lead-copy">Copiar resumo</button>
+        </div>
+        <pre class="summary" id="lead-summary"></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ═════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="faq">
+  <div class="container container-narrow">
+    <h2 class="section-title">Perguntas que o dono da clínica sempre faz</h2>
+
+    <details class="faq-item">
+      <summary>Minha recepção já manda mensagem no WhatsApp</summary>
+      <p>Sim — e é provavelmente por isso que parte dos seus agendamentos vira falta. A diferença não é <em>mandar</em> mensagem, é <em>confirmar</em>. A régua faz quatro toques em momentos definidos, com botões de confirmar e remarcar, e recupera quem faltou. Se a sua equipe já responde em 5 minutos e já cobra confirmação, o que falta é o painel. Me conta que eu digo se vale.</p>
+    </details>
+    <details class="faq-item">
+      <summary>E se a Meta bloquear o número da clínica?</summary>
+      <p>Por isso o kit usa API oficial com BSP homologado e nunca automação de WhatsApp comum. A mitigação faz parte do checklist: 2FA, Business Manager com admins definidos, templates aprovados e verificação de qualidade do perfil. E a estrutura é validada primeiro em número de teste, antes de tocar no número que atende os pacientes.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Não sei mexer em nada disso</summary>
+      <p>Você não usa. O assistente faz a triagem, a régua confirma, o painel mostra o resultado. A única exigência da sua equipe é lançar a agenda 5 minutos por dia. Se preferir, existe a Instalação Assistida, em que eu configuro tudo com você.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Está caro</summary>
+      <p>Vamos por partes: qual o seu faturamento de atendimentos? Com 25% de falta em 80 atendimentos a R$300, são R$6.000 por mês. O kit custa R$147 e se paga em um dia. A pergunta não é se é caro — é se R$6.000 por mês na mesa é normal para a sua operação.</p>
+    </details>
+    <details class="faq-item">
+      <summary>E se eu não uso Instagram?</summary>
+      <p>Funciona igual, com uma diferença técnica: os lembretes de 72h, 24h e 2h antes exigem WhatsApp com API oficial, porque o Instagram não permite envio confiável fora da janela de 24 horas. Se você já tem WhatsApp Business, o kit é plugado. Se não tem, a instalação cobre esse passo.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Minha equipe não vai adotar</summary>
+      <p>Ninguém precisa adotar nada. O assistente cuida da parte repetitiva e a equipe só entra quando a IA não entende — com o contexto já montado. No relatório mensal, o tempo da equipe devolvido aparece como uma das linhas.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Os dados dos meus pacientes estão seguros?</summary>
+      <p>O assistente não coleta dado de saúde, não diagnostica e não substitui atendimento. Você recebe o contrato de operador (LGPD art. 39), o aviso de privacidade e os textos de política de cancelamento prontos para o seu advogado revisar. A clínica é a controladora dos dados.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Vocês são dentistas?</summary>
+      <p>Não. Fazemos automação de atendimento e agendamento. Todo texto clínico de preparo e pós-cuidado é validado pelo seu CRO antes de ir para produção — essa é uma condição do kit, não uma recomendação.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="brand">
+        <span class="brand-mark">🦷</span>
+        <span class="brand-text">Cadeira Cheia<small>automação para clínicas odontológicas</small></span>
+      </div>
+      <p class="footer-note">
+        Cadeira Cheia é um kit de implementação de automação de atendimento. Não prestamos serviço
+        odontológico e não substituímos avaliação, diagnóstico ou tratamento profissional.
+      </p>
+    </div>
+    <nav class="footer-links">
+      <a href="#calculadora">Calculadora</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#kit">O kit</a>
+      <a href="#faq">FAQ</a>
+      <a href="#formulario">Contato</a>
+    </nav>
+  </div>
+  <p class="footer-base" id="footer-base"></p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
