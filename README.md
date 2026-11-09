@@ -3,8 +3,9 @@
 Landing pública + calculadora de ROI para clínicas odontológicas.
 Publicada via **GitHub Pages** a partir deste repositório.
 
-**Somente arquivos públicos.** Aqui ficam apenas `index.html`, `assets/app.js` e
-`assets/styles.css`. Não copie para cá páginas internas nem documentação comercial.
+**Somente arquivos públicos.** Aqui ficam apenas `index.html`, `assets/app.js`,
+`assets/styles.css` e as ilustrações SVG em `assets/img/`. Não copie para cá
+páginas internas nem documentação comercial.
 
 ## Publicar / atualizar
 

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" width="1440" height="800" role="img" aria-label="Consultório odontológico com a cadeira vazia sob a luz central">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101A2E"/>
+      <stop offset="1" stop-color="#0A0F1C"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0C1424"/>
+      <stop offset="1" stop-color="#080C17"/>
+    </linearGradient>
+    <radialGradient id="lampGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#34D3C4" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#34D3C4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#34D3C4" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#34D3C4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="seat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E2B49"/>
+      <stop offset="1" stop-color="#16203A"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#34D3C4" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#34D3C4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- parede + piso -->
+  <rect width="1440" height="800" fill="url(#wall)"/>
+  <rect y="566" width="1440" height="234" fill="url(#floor)"/>
+  <path d="M0 566H1440" stroke="#23304F" stroke-width="2"/>
+  <path d="M0 646H1440" stroke="#16203A" stroke-width="2" opacity=".7"/>
+  <path d="M120 800 L470 566 M1320 800 L970 566" stroke="#16203A" stroke-width="2" opacity=".55"/>
+
+  <!-- armário lateral esquerdo -->
+  <g opacity=".75">
+    <rect x="96" y="392" width="300" height="174" rx="12" fill="#0F1729" stroke="#1E2B49" stroke-width="3"/>
+    <path d="M96 480H396" stroke="#1E2B49" stroke-width="3"/>
+    <path d="M246 392V566" stroke="#1E2B49" stroke-width="3"/>
+    <rect x="128" y="424" width="86" height="10" rx="5" fill="#23304F"/>
+    <rect x="278" y="424" width="86" height="10" rx="5" fill="#23304F"/>
+    <rect x="128" y="512" width="86" height="10" rx="5" fill="#23304F"/>
+    <rect x="278" y="512" width="86" height="10" rx="5" fill="#23304F"/>
+  </g>
+
+  <!-- cone de luz + luminária -->
+  <path d="M960 74 H1214 L1352 566 H816 Z" fill="url(#cone)"/>
+  <path d="M1086 0 V64" stroke="#23304F" stroke-width="12" stroke-linecap="round"/>
+  <ellipse cx="1086" cy="82" rx="86" ry="28" fill="#18233D" stroke="#23304F" stroke-width="3"/>
+  <ellipse cx="1086" cy="84" rx="52" ry="15" fill="#34D3C4" opacity=".55"/>
+  <circle cx="1086" cy="84" r="120" fill="url(#lampGlow)"/>
+
+  <!-- cadeira odontológica vazia -->
+  <g>
+    <!-- base hidráulica -->
+    <ellipse cx="1050" cy="560" rx="118" ry="26" fill="#111B31" stroke="#23304F" stroke-width="3"/>
+    <ellipse cx="1050" cy="552" rx="74" ry="16" fill="#18233D"/>
+    <rect x="1024" y="452" width="52" height="104" rx="16" fill="#16203A" stroke="#23304F" stroke-width="3"/>
+    <!-- encosto inclinado -->
+    <g transform="rotate(-16 1094 430)">
+      <rect x="1064" y="236" width="72" height="206" rx="34" fill="url(#seat)" stroke="#2A3B60" stroke-width="3"/>
+      <rect x="1074" y="212" width="52" height="54" rx="24" fill="#1E2B49" stroke="#2A3B60" stroke-width="3"/>
+      <rect x="1074" y="252" width="8" height="168" rx="4" fill="url(#rim)" opacity=".7"/>
+    </g>
+    <!-- assento -->
+    <rect x="906" y="414" width="214" height="60" rx="30" fill="url(#seat)" stroke="#2A3B60" stroke-width="3"/>
+    <rect x="918" y="426" width="150" height="8" rx="4" fill="#34D3C4" opacity=".35"/>
+    <!-- apoio de braço -->
+    <rect x="884" y="378" width="76" height="20" rx="10" fill="#1E2B49" stroke="#2A3B60" stroke-width="3"/>
+    <rect x="896" y="396" width="16" height="34" rx="8" fill="#16203A" stroke="#2A3B60" stroke-width="3"/>
+    <!-- pedal -->
+    <path d="M1164 546 h56 a10 10 0 0 1 0 20 h-56 z" fill="#18233D" stroke="#23304F" stroke-width="3"/>
+  </g>
+
+  <!-- brilho de reflexo no piso -->
+  <ellipse cx="1050" cy="592" rx="150" ry="24" fill="#34D3C4" opacity=".07"/>
+  <ellipse cx="1086" cy="120" rx="240" ry="60" fill="#22B8FF" opacity=".05"/>
+</svg>
