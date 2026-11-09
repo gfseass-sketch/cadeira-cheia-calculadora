@@ -363,6 +363,34 @@ small { font-size: .78em; }
 .footer-links a:hover{ color:var(--accent); }
 .footer-base{ text-align:center; color:var(--text-faint); font-size:.78rem; margin:34px 0 0; }
 
+/* ── Páginas legais (privacidade / termos) ───────────────────────── */
+.legal-top{ background:var(--bg); border-bottom:1px solid var(--border-soft); position:relative; z-index:2; }
+.legal-top .brand{ color:var(--text); }
+.legal-top .brand:hover{ text-decoration:none; }
+.legal-top .nav-cta .btn-ghost{ display:inline-flex; }
+.legal{ padding:52px 0 84px; }
+.legal h1{ font-size:clamp(1.9rem, 4.4vw, 2.6rem); margin-bottom:.2em; }
+.legal-updated{ color:var(--text-faint); font-size:.85rem; margin:.2em 0 2em; }
+.legal h2{ font-size:1.16rem; margin:2.1em 0 .55em; }
+.legal h3{ font-size:1rem; margin:1.5em 0 .4em; }
+.legal p, .legal li{ color:var(--text-dim); font-size:.96rem; line-height:1.7; }
+.legal strong{ color:var(--text); font-weight:600; }
+.legal ul, .legal ol{ margin:0 0 1.1rem; padding-left:1.25rem; }
+.legal li{ margin:.32em 0; }
+.legal a{ text-decoration:underline; text-underline-offset:3px; }
+.legal a:hover{ text-decoration:underline; }
+.legal .contact-box{
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); padding:20px 22px; margin:2em 0 0;
+}
+.legal .contact-box p{ margin:.35em 0; }
+.legal .contact-box p:first-child{ margin-top:0; }
+.legal .contact-box p:last-child{ margin-bottom:0; }
+@media (max-width: 560px){
+  .legal-top .nav-cta .btn-primary{ display:none; }
+  .legal-top .nav-cta .btn-ghost{ color:var(--accent); }
+}
+
 /* ── Toast ──────────────────────────────────────────────────────── */
 .toast{
   position:fixed; left:50%; bottom:26px; transform:translate(-50%, 24px);
