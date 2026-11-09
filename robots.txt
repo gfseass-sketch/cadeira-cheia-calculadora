@@ -1,0 +1,18 @@
+# Cadeira Cheia — Calculadora de Cadeira Vazia
+# https://gfseass-sketch.github.io/cadeira-cheia-calculadora/
+
+User-agent: *
+Allow: /
+
+# Paginas internas do kit — nunca indexar (nao devem existir no deploy)
+Disallow: /respostas.html
+Disallow: /simulador.html
+Disallow: /mesa.css
+Disallow: /respostas.js
+Disallow: /simulador.js
+
+# Dados locais e endpoints (nao existe no hosting estatico, mas bloqueia por garantia)
+Disallow: /data/
+Disallow: /api/
+
+Sitemap: https://gfseass-sketch.github.io/cadeira-cheia-calculadora/sitemap.xml
